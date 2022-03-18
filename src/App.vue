@@ -1,12 +1,36 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+// // Home.vue
+// export default {
+//   computed: {
+//     username() {
+//       // We will see what `params` is shortly
+//       return this.$route.params.username
+//     },
+//   },
+//   methods: {
+//     goToDashboard() {
+//       if (isAuthenticated) {
+//         this.$router.push('/dashboard')
+//       } else {
+//         this.$router.push('/login')
+//       }
+//     },
+//   },
+// }
+
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <p>
+    <!-- use the router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
 </template>
 
 <style>
