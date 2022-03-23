@@ -1,22 +1,30 @@
 <script>
-// // Collection.vue
-// export default {
-//   computed: {
-//     username() {
-//       // We will see what `params` is shortly
-//       return this.$route.params.username
-//     },
-//   },
-//   methods: {
-//     goToDashboard() {
-//       if (isAuthenticated) {
-//         this.$router.push('/dashboard')
-//       } else {
-//         this.$router.push('/login')
-//       }
-//     },
-//   },
-// }
+// Collection.vue
+import axios from "axios";
+// import Collection from "components/Collection.vue";
+// import Create from "components/Create.vue";
+// import Details from "components/Details.vue";
+// import Edit from "components/Edit.vue";
+
+export default {
+
+  data: () =>( {
+    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
+  }),
+  components: {
+    // Collection,
+    // Create,
+    // Details,
+    // Edit
+  },
+  methods: {
+    async addAlcohol() {
+      await this.requestHandler.post("/", {
+
+      })
+    },
+  },
+}
 
 </script>
 
