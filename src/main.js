@@ -4,15 +4,19 @@
 import {createApp} from "vue"
 import {createRouter,createWebHashHistory} from "vue-router"
 import App from "./App.vue"
-import Home from "./components/page/Home.vue"
-import About from "./components/page/About.vue"
+import Collection from "./components/pages/Collection.vue"
+import Details from "./components/pages/Details.vue"
+import Create from "./components/pages/Create.vue"
+import Edit from "./components/pages/Edit.vue"
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
+    { path: '/', component: Collection },
+    { path: '/create', component: Create },
+    { path: '/details', component: Details },
+    { path: '/edit', component: Edit },
 ]
 
-// 3. Create the router instance and pass the `routes` option
+// 3. Create.vue the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.
 const router = createRouter({
@@ -21,7 +25,7 @@ const router = createRouter({
     routes, // short for `routes: routes`
 })
 
-// 5. Create and mount the root instance.
+// 5. Create.vue and mount the root instance.
 const app = createApp(App)
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.

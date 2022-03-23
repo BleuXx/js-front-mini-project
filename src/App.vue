@@ -1,5 +1,5 @@
 <script>
-// // Home.vue
+// // Collection.vue
 // export default {
 //   computed: {
 //     username() {
@@ -21,25 +21,26 @@
 </script>
 
 <template>
-  <p>
-    <!-- use the router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/about">Go to About</router-link>
-  </p>
-  <!-- route outlet -->
-  <!-- component matched by the route will render here -->
+  <nav>
+    <router-link to="/">See collection</router-link>
+    <router-link to="/create">Create</router-link>
+    <router-link to="/edit">Edit</router-link>
+    <router-link to="/details">Details</router-link>
+  </nav>
   <router-view></router-view>
 </template>
 
 <style>
-#app {
+*{
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+nav {
   margin-top: 60px;
+}
+a{
+  margin: 0 10px;
 }
 </style>

@@ -1,0 +1,3 @@
+<template>
+  Alcohol collection
+</template>
