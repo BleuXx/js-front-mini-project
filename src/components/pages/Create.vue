@@ -19,6 +19,8 @@ export default {
       })
       console.log(this.name)
     },
+
+
   },
 }
 </script>
