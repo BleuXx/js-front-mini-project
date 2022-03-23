@@ -11,19 +11,6 @@ export default {
   data: () =>( {
     requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
   }),
-  components: {
-    // Collection,
-    // Create,
-    // Details,
-    // Edit
-  },
-  methods: {
-    async addAlcohol() {
-      await this.requestHandler.post("/", {
-
-      })
-    },
-  },
 }
 
 </script>
