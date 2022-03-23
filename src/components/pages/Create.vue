@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
 
   data: () =>( {
-    requestHandler: axios.create({ baseURL: "http://172.31.247.131:3001" }),
+    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
     name:"",
     type:"",
     description:"",
@@ -15,7 +15,11 @@ export default {
   methods: {
     async addAlcohol() {
       await this.requestHandler.post("/", {
-          
+          name: this.name,
+          type: this.type,
+          description: this.description,
+          evaluatedPrice: this.price,
+          alcoholLevel: this.alcohol        
       })
       console.log(this.name)
     },
@@ -30,7 +34,7 @@ export default {
     <textarea rows="10" cols="22" placeholder="description" v-model="description" required></textarea>
     <p><input type="text" placeholder="price" v-model="price" required></p>
     <p><input type="text" placeholder="alcohol" v-model="alcohol" required></p>
-    <p><input type="file" accept="image/*" required></p>
+    <!-- <p><input type="file" accept="image/*" required></p> -->
     <button type="submit"> ajouter </button>
   </form>
 </template>
