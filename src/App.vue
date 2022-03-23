@@ -1,10 +1,7 @@
 <script>
 // Collection.vue
 import axios from "axios";
-// import Collection from "components/Collection.vue";
-// import Create from "components/Create.vue";
-// import Details from "components/Details.vue";
-// import Edit from "components/Edit.vue";
+
 
 export default {
 

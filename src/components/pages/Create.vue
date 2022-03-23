@@ -1,10 +1,10 @@
 <script>
 import axios from "axios";
-
+import addAlcohol from './services/api'
 export default {
 
   data: () =>( {
-    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
+    requestHandler: axios.create({ baseURL: "http://localhost:3001/alcoholic_drinks" }),
     name:"",
     type:"",
     description:"",
@@ -14,14 +14,7 @@ export default {
 
   methods: {
     async addAlcohol() {
-      await this.requestHandler.post("/", {
-          name: this.name,
-          type: this.type,
-          description: this.description,
-          evaluatedPrice: this.price,
-          alcoholLevel: this.alcohol        
-      })
-      console.log(this.name)
+      await addAlcohol(this.name,this.type,this.description,this.price,this.alcohol)
     },
 
 
