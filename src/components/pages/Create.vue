@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
 
   data: () =>( {
-    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
+    requestHandler: axios.create({ baseURL: "http://localhost:3001/alcoholic_drinks" }),
     name:"",
     type:"",
     description:"",
