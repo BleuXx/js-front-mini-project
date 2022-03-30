@@ -24,7 +24,15 @@ import {getAlcohols} from "../../services/api.js"
 <template>
   <table>
     <tr><th>Type</th><th>Name</th><th>Description</th><th>Price</th><th>Alcohol degree</th></tr>
-    <tr v-for="alcohol in alcohols"><td>{{alcohol.type}}</td><td>{{alcohol.name}}</td><td>{{alcohol.description}}</td><td>{{alcohol.evaluatedPrice}}</td><td>{{alcohol.alcoholLevel}}</td></tr>
+    <tr v-for="alcohol in alcohols">
+      <td>{{alcohol.type}}</td>
+      <td>{{alcohol.name}}</td>
+      <td>{{alcohol.description}}</td>
+      <td>{{alcohol.evaluatedPrice}}</td>
+      <td>{{alcohol.alcoholLevel}}</td>
+      <td><router-link :to="`/${alcohol.id}/edit`">Edit</router-link></td>
+      <td><router-link :to="`/${alcohol.id}`">Details</router-link></td>
+    </tr>
   </table>
 </template>
 
