@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-
+import addAlcohol from './services/api'
 export default {
 
   data: () =>( {
@@ -14,15 +14,10 @@ export default {
 
   methods: {
     async addAlcohol() {
-      await this.requestHandler.post("/", {
-          name: this.name,
-          type: this.type,
-          description: this.description,
-          evaluatedPrice: this.price,
-          alcoholLevel: this.alcohol        
-      })
-      console.log(this.name)
+      await addAlcohol(this.name,this.type,this.description,this.price,this.alcohol)
     },
+
+
   },
 }
 </script>

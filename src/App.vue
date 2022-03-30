@@ -1,12 +1,11 @@
 <script>
-// Collection.vue
+// Home.vue
 import axios from "axios";
-// import Collection from "components/Collection.vue";
-// import Create from "components/Create.vue";
-// import Details from "components/Details.vue";
-// import Edit from "components/Edit.vue";
+
 
 export default {
+
+  name: "Alcohol",
 
   data: () =>( {
     requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
@@ -17,7 +16,7 @@ export default {
 
 <template>
   <nav>
-    <router-link to="/">See collection</router-link>
+    <router-link to="/">Home</router-link>
     <router-link to="/create">Create</router-link>
     <router-link to="/edit">Edit</router-link>
     <router-link to="/details">Details</router-link>

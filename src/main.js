@@ -4,13 +4,13 @@
 import {createApp} from "vue"
 import {createRouter,createWebHashHistory} from "vue-router"
 import App from "./App.vue"
-import Collection from "./components/pages/Collection.vue"
+import Home from "./components/pages/Home.vue"
 import Details from "./components/pages/Details.vue"
 import Create from "./components/pages/Create.vue"
 import Edit from "./components/pages/Edit.vue"
 
 const routes = [
-    { path: '/', component: Collection },
+    { path: '/', component: Home },
     { path: '/create', component: Create },
     { path: '/details', component: Details },
     { path: '/edit', component: Edit },
