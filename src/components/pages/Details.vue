@@ -1,25 +1,15 @@
 <script>
-import axios from "axios";
+import { getAlcohol } from "../../services/api.js";
 
 export default {
-
-  data: () =>( {
-    requestHandler: axios.create({ baseURL: "http://172.31.247.131:3001" }),
-  }),
+  data: () => ({}),
 
   methods: {
-    async addAlcohol() {
-      await this.requestHandler.get("/", {
-
-      })
-      console.log(this.name)
+    async getAlcohol(id) {
+      const alcohol = await getAlcohol(id);
     },
-
-
   },
-}
+};
 </script>
 
-<template>
-  
-</template>
+<template></template>

@@ -1,17 +1,15 @@
 <script>
-import axios from "axios";
+// Home.vue
 
 export default {
   name: "Alcohol",
-  data: () => ({
-    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
-  }),
+  data: () => ({}),
 };
 </script>
 
 <template>
   <nav>
-    <router-link to="/">See collection</router-link>
+    <router-link to="/">Home</router-link>
     <router-link to="/create">Create</router-link>
     <router-link to="/edit">Edit</router-link>
     <router-link to="/details">Details</router-link>
@@ -26,9 +24,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 nav {
   margin-top: 60px;
 }
+
 a {
   margin: 0 10px;
 }

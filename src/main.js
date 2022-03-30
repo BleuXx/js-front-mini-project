@@ -1,13 +1,16 @@
+// 2. Define some routes
+// Each route should map to a component.
+// We'll talk about nested routes later.
 import { createApp } from "vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
-import Collection from "./components/pages/Collection.vue";
 import Create from "./components/pages/Create.vue";
 import Details from "./components/pages/Details.vue";
 import Edit from "./components/pages/Edit.vue";
+import Home from "./components/pages/Home.vue";
 
 const routes = [
-  { path: "/", component: Collection },
+  { path: "/", component: Home },
   { path: "/create", component: Create },
   { path: "/details", component: Details },
   { path: "/edit", component: Edit },
