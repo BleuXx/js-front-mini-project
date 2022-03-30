@@ -1,5 +1,5 @@
 <script>
-// Collection.vue
+// Home.vue
 import axios from "axios";
 
 
@@ -16,7 +16,7 @@ export default {
 
 <template>
   <nav>
-    <router-link to="/">See collection</router-link>
+    <router-link to="/">Home</router-link>
     <router-link to="/create">Create</router-link>
     <router-link to="/edit">Edit</router-link>
     <router-link to="/details">Details</router-link>

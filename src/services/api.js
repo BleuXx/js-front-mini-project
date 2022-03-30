@@ -2,6 +2,11 @@ import axios from "axios";
 
 const apiUrl = 'http://localhost:3001/alcoholic_drinks';
 
+export const getAlcohols = async () => {
+    const res = await axios.get(`${apiUrl}/`);
+    return res.data
+}
+
 export const getAlcohol = async (id) => {
     const res = await axios.get(`${apiUrl}/${id}`);
     return res.data
