@@ -12,14 +12,15 @@ export const getAlcohol = async (id) => {
     return res.data
 }
 
-export const addAlcohol = async (name,type,description,price,alcohol) => {
+export const addAlcohol = async (name,type,description,evaluatedPrice,alcoholLevel) => {
     const res = await axios.post(`${apiUrl}/`, {
         name,
         type,
         description,
-        price,
-        alcohol
+        evaluatedPrice,
+        alcoholLevel
     })
+    
     return res.data
 }
 
