@@ -1,21 +1,35 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import axios from "axios";
+
+export default {
+  name: "Alcohol",
+  data: () => ({
+    requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
+  }),
+};
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <nav>
+    <router-link to="/">See collection</router-link>
+    <router-link to="/create">Create</router-link>
+    <router-link to="/edit">Edit</router-link>
+    <router-link to="/details">Details</router-link>
+  </nav>
+  <router-view></router-view>
 </template>
 
 <style>
-#app {
+* {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+nav {
   margin-top: 60px;
+}
+a {
+  margin: 0 10px;
 }
 </style>
