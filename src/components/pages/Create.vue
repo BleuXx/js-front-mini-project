@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import addAlcohol from './services/api'
+import {addAlcohol} from '../../services/api.js'
 export default {
 
   data: () =>( {

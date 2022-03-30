@@ -13,7 +13,7 @@ export const getAlcohol = async (id) => {
 }
 
 export const addAlcohol = async (name,type,description,price,alcohol) => {
-    const res = await axios.post(`${apiUrl}/create`, {
+    const res = await axios.post(`${apiUrl}/`, {
         name,
         type,
         description,
@@ -24,9 +24,9 @@ export const addAlcohol = async (name,type,description,price,alcohol) => {
 }
 
 export const updateAlcohol = async (alcohol) =>
-    await axios.put(`${apiUrl}/edit/${alcohol.id}`, {
+    await axios.put(`${apiUrl}/${alcohol.id}`, {
         state: !alcohol.state
     });
 
 export const deleteAlcohol = async (alcohol) =>
-    await axios.delete(`${apiUrl}/tasks/${alcohol.id}`);
+    await axios.delete(`${apiUrl}/${alcohol.id}`);
