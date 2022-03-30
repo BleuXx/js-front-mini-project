@@ -1,4 +1,5 @@
 <script>
+import {getAlcohol} from "../../services/api.js"
 
 </script>
 

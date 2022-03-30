@@ -5,6 +5,8 @@ import axios from "axios";
 
 export default {
 
+  name: "Alcohol",
+
   data: () =>( {
     requestHandler: axios.create({ baseURL: "http://localhost:3001" }),
   }),

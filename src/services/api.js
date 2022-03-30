@@ -2,8 +2,8 @@ import axios from "axios";
 
 const apiUrl = 'http://localhost:3001/alcoholic_drinks';
 
-export const getAlcohol = async (alcohol) => {
-    const res = await axios.get(`${apiUrl}/${alcohol.id}`);
+export const getAlcohol = async (id) => {
+    const res = await axios.get(`${apiUrl}/${id}`);
     return res.data
 }
 
@@ -19,7 +19,7 @@ export const addAlcohol = async (name,type,description,price,alcohol) => {
 }
 
 export const updateAlcohol = async (alcohol) =>
-    await axios.put(`${apiUrl}/tasks/${alcohol.id}`, {
+    await axios.put(`${apiUrl}/edit/${alcohol.id}`, {
         state: !alcohol.state
     });
 
