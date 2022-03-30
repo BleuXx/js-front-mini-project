@@ -17,5 +17,5 @@ import {getAlcohol, getAlcohols} from "../../services/api.js"
 </script>
 
 <template>
-  <div v-for="alcohols"></div>
+  <!-- <div v-for="alcohols"></div> -->
 </template>
