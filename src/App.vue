@@ -11,8 +11,6 @@ export default {
   <nav>
     <router-link to="/">Home</router-link>
     <router-link to="/create">Create</router-link>
-    <router-link to="/edit">Edit</router-link>
-    <router-link to="/details">Details</router-link>
   </nav>
   <router-view></router-view>
 </template>

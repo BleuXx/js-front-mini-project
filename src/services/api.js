@@ -9,6 +9,7 @@ export const getAlcohols = async () => {
 
 export const getAlcohol = async (id) => {
   const res = await axios.get(`${apiUrl}/${id}`);
+  console.log(res);
   return res.data;
 };
 
@@ -30,9 +31,16 @@ export const addAlcohol = async (
   return res.data;
 };
 
-export const updateAlcohol = async (alcohol) =>
-  await axios.put(`${apiUrl}/${alcohol.id}`, {
-    state: !alcohol.state,
+export const updateAlcohol = async (
+  id,
+  { name, type, description, evaluatedPrice, alcoholLevel }
+) =>
+  await axios.put(`${apiUrl}/${id}`, {
+    name,
+    type,
+    description,
+    evaluatedPrice,
+    alcoholLevel,
   });
 
 export const deleteAlcohol = async (alcohol) =>

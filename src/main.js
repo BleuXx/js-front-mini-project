@@ -12,8 +12,8 @@ import Home from "./components/pages/Home.vue";
 const routes = [
   { path: "/", component: Home },
   { path: "/create", component: Create },
-  { path: "/details", component: Details },
-  { path: "/edit", component: Edit },
+  { path: "/:id", component: Details },
+  { path: "/:id/edit", component: Edit },
 ];
 
 // 3. Create.vue the router instance and pass the `routes` option
