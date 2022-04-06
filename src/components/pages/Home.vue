@@ -7,13 +7,6 @@ import {getAlcohols} from "../../services/api.js"
       alcohols: []
     }),
 
-    methods:{
-      async getAlcohols() {
-        console.log(await getAlcohols())
-        return await getAlcohols()
-      }
-    },
-
     async mounted() {
       this.alcohols=await getAlcohols()
     }
@@ -30,7 +23,6 @@ import {getAlcohols} from "../../services/api.js"
       <td>{{alcohol.description}}</td>
       <td>{{alcohol.evaluatedPrice}}</td>
       <td>{{alcohol.alcoholLevel}}</td>
-      <td><router-link :to="`/${alcohol.id}/edit`">Edit</router-link></td>
       <td><router-link :to="`/${alcohol.id}`">Details</router-link></td>
     </tr>
   </table>
