@@ -26,7 +26,7 @@ export default {
     <p><input type="text" placeholder="type" v-model="type" required></p>
     <textarea rows="10" cols="22" placeholder="description" v-model="description" required></textarea>
     <p><input type="number" step="0.01" placeholder="price" v-model="price" required></p>
-    <p><input type="number" max="100" min="0" placeholder="alcohol" v-model="alcohol" required></p>
+    <p><input type="number" step="0.5" max="100" min="0" placeholder="alcohol" v-model="alcohol" required></p>
     <!-- <p><input type="file" accept="image/*" required></p> -->
     <button type="submit"> ajouter </button>
   </form>

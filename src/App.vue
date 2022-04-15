@@ -29,9 +29,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 nav {
-  margin-top: 60px;
+  margin: 60px 0;
 }
 a{
   margin: 0 10px;
+}
+#app{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 </style>
