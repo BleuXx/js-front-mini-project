@@ -20,14 +20,19 @@ export const addAlcohol = async (name,type,description,evaluatedPrice,alcoholLev
         evaluatedPrice,
         alcoholLevel
     })
-    
     return res.data
 }
 
-export const updateAlcohol = async (alcohol) =>
-    await axios.put(`${apiUrl}/${alcohol.id}`, {
-        state: !alcohol.state
+export const updateAlcohol = async (id,name,type,description,evaluatedPrice,alcoholLevel) => {
+    const res = await axios.put(`${apiUrl}/${id}`, {
+        name,
+        type,
+        description,
+        evaluatedPrice,
+        alcoholLevel
     });
+    return res.data
+};
 
 export const deleteAlcohol = async (alcohol) =>
     await axios.delete(`${apiUrl}/${alcohol.id}`);

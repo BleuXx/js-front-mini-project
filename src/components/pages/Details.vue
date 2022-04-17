@@ -1,17 +1,24 @@
 <script>
-import {getAlcohol} from "../../services/api.js"
+import {getAlcohol, deleteAlcohol, addAlcohol} from "../../services/api.js"
 
 export default {
 
   data: () => ({
-    alcohol: 1,
+    alcohol: {},
+    message:"",
+    show: true
   }),
 
   async mounted() {
     this.alcohol=await getAlcohol(this.$route.params.id)
-    console.log(this.alcohol)
-  }
+  },
 
+  methods: {
+    async deleteAlcohol() {
+      await deleteAlcohol(this.alcohol)
+      this.message = "Successfully deleted !"
+    },
+  },
 }
 </script>
 
@@ -22,6 +29,8 @@ export default {
   <p>Description : {{ alcohol.description }}</p>
   <p>Price : {{ alcohol.evaluatedPrice }} €</p>
   <p>Alcohol degree : {{ alcohol.alcoholLevel }}</p>
-  <p><router-link :to="`/${alcohol.id}/edit`">Edit</router-link></p>
+  <router-link v-show="show" :to="`/${alcohol.id}/edit`">Edit</router-link>
+  <button v-on:click="deleteAlcohol">Delete</button>
+  <p><strong>{{message}}</strong></p>
 
 </template>
