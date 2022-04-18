@@ -33,7 +33,7 @@ export default {
     <label for="desc">Description</label>
     <textarea id="desc" rows="10" cols="22" :placeholder="alcohol.description" v-model="alcohol.description"></textarea>
 
-    <label for="price">Price</label>
+    <label for="price">Estimated price</label>
     <input id="price" type="number" step="0.01" min="0" :placeholder="alcohol.evaluatedPrice" v-model="alcohol.evaluatedPrice"/>
 
     <label for="alcohol">Alcohol level</label>

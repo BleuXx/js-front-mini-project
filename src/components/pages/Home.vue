@@ -4,32 +4,41 @@ import {getAlcohols} from "../../services/api.js"
   export default {
 
     data: () => ({
-      alcohols: []
+      alcohols: [],
+      collectionValue:0.0
     }),
 
     async mounted() {
       this.alcohols=await getAlcohols()
+      this.alcohols.forEach(o => {
+        this.collectionValue += o.evaluatedPrice
+      })
     }
 
   }
 </script>
 
 <template>
-  <table>
-    <tr><th>Type</th><th>Name</th><th>Description</th><th>Price</th><th>Alcohol degree</th></tr>
-    <tr v-for="alcohol in alcohols">
-      <td>{{alcohol.type}}</td>
-      <td>{{alcohol.name}}</td>
-      <td>{{alcohol.description}}</td>
-      <td>{{alcohol.evaluatedPrice}}</td>
-      <td>{{alcohol.alcoholLevel}}</td>
-      <td><router-link :to="`/${alcohol.id}`">Details</router-link></td>
-    </tr>
+  <p>Estimated value of the collection : {{collectionValue}}</p>
+  <table class="table table-striped table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Alcohol degree</th>
+        <th>Evaluated price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="alcohol in alcohols">
+        <td class="align-middle">{{alcohol.name}}</td>
+        <td class="align-middle">{{alcohol.type}}</td>
+        <td class="align-middle text-break">{{alcohol.description}}</td>
+        <td class="align-middle">{{alcohol.alcoholLevel}}</td>
+        <td class="align-middle">{{alcohol.evaluatedPrice}}</td>
+        <td class="align-middle"><router-link class="btn btn-outline-primary" :to="`/${alcohol.id}`">Details</router-link></td>
+      </tr>
+    </tbody>
   </table>
 </template>
-
-<style>
-  table, th,td{
-    border: black 1px solid;
-  }
-</style>

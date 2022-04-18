@@ -32,14 +32,14 @@ export default {
     <label for="desc">Description</label>
     <textarea id="desc" rows="10" cols="22" placeholder="Description" v-model="description" required></textarea>
 
-    <label for="price">Price</label>
-    <input id="price" type="number" step="0.01" min="0" placeholder="Price" v-model="price" required>
+    <label for="price">Estimated price</label>
+    <input id="price" type="number" step="0.01" min="0" placeholder="Estimated price" v-model="price" required>
 
     <label for="alcohol">Alcohol level</label>
     <input id="alcohol" type="number" step="0.1" max="100" min="0" placeholder="Alcohol degree" v-model="alcohol" required>
 
     <!-- <input type="file" accept="image/*" required> -->
-    <button type="submit">Add</button>
+    <button class="btn btn-outline-primary mt-3" type="submit">Add</button>
     <p><strong>{{message}}</strong></p>
 
   </form>
