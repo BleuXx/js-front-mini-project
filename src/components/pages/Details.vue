@@ -1,29 +1,27 @@
 <script>
-import {getAlcohol, deleteAlcohol, addAlcohol} from "../../services/api.js"
+import { deleteAlcohol, getAlcohol } from "../../services/api.js";
 
 export default {
-
   data: () => ({
     alcohol: {},
-    message:"",
-    show: true
+    message: "",
+    show: true,
   }),
 
   async mounted() {
-    this.alcohol=await getAlcohol(this.$route.params.id)
+    this.alcohol = await getAlcohol(this.$route.params.id);
   },
 
   methods: {
     async deleteAlcohol() {
-      this.message = "Successfully deleted !"
-      await deleteAlcohol(this.alcohol)
+      this.message = "Successfully deleted !";
+      await deleteAlcohol(this.alcohol);
     },
   },
-}
+};
 </script>
 
 <template>
-
   <table class="table table-bordered text-break">
     <tbody>
       <tr>
@@ -48,8 +46,19 @@ export default {
       </tr>
     </tbody>
   </table>
-  <router-link class="btn btn-outline-primary w-100" v-show="show" :to="`/${alcohol.id}/edit`">Edit</router-link>
-  <p><strong>{{message}}</strong></p>
-  <router-link class="btn btn-outline-danger w-100" :to="`/${alcohol.id}/`" v-on:click="deleteAlcohol">Delete</router-link>
-
+  <router-link
+    class="btn btn-outline-primary w-100"
+    v-show="show"
+    :to="`/${alcohol.id}/edit`"
+    >Edit</router-link
+  >
+  <p>
+    <strong>{{ message }}</strong>
+  </p>
+  <router-link
+    class="btn btn-outline-danger w-100"
+    :to="`/${alcohol.id}/`"
+    v-on:click="deleteAlcohol"
+    >Delete</router-link
+  >
 </template>

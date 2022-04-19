@@ -1,17 +1,23 @@
 <script>
 import { getAlcohol, updateAlcohol } from "../../services/api.js";
 export default {
-
   name: "EditPage",
   data: () => ({
     alcohol: {},
-    message:""
+    message: "",
   }),
 
   methods: {
     async updateAlcohol() {
-      const res =await updateAlcohol(this.alcohol.id,this.alcohol.name,this.alcohol.type,this.alcohol.description,this.alcohol.evaluatedPrice,this.alcohol.alcoholLevel);
-      this.message = res.message
+      const res = await updateAlcohol(
+        this.alcohol.id,
+        this.alcohol.name,
+        this.alcohol.type,
+        this.alcohol.description,
+        this.alcohol.evaluatedPrice,
+        this.alcohol.alcoholLevel
+      );
+      this.message = res.message;
     },
   },
 
@@ -23,33 +29,56 @@ export default {
 
 <template>
   <form @submit.prevent="updateAlcohol">
-
     <label for="name">Name</label>
-    <input id="name" type="text" :placeholder="alcohol.name" v-model="alcohol.name"/>
+    <input id="name" type="text" :value="alcohol.name" v-model="alcohol.name" />
 
     <label for="type">Type</label>
-    <input id="type" type="text" :placeholder="alcohol.type" v-model="alcohol.type"/>
+    <input id="type" type="text" :value="alcohol.type" v-model="alcohol.type" />
 
     <label for="desc">Description</label>
-    <textarea id="desc" rows="10" cols="22" :placeholder="alcohol.description" v-model="alcohol.description"></textarea>
+    <textarea
+      id="desc"
+      rows="10"
+      cols="22"
+      :value="alcohol.description"
+      v-model="alcohol.description"
+    ></textarea>
 
     <label for="price">Estimated price</label>
-    <input id="price" type="number" step="0.01" min="0" :placeholder="alcohol.evaluatedPrice" v-model="alcohol.evaluatedPrice"/>
+    <input
+      id="price"
+      type="number"
+      step="0.01"
+      min="0"
+      :value="alcohol.evaluatedPrice"
+      v-model="alcohol.evaluatedPrice"
+    />
 
     <label for="alcohol">Alcohol level</label>
-    <input id="alcohol" type="number" step="0.1" max="100" min="0" name="alcoholLevel" :placeholder="alcohol.alcoholLevel" v-model="alcohol.alcoholLevel"/>
-
+    <input
+      id="alcohol"
+      type="number"
+      step="0.1"
+      max="100"
+      min="0"
+      name="alcoholLevel"
+      :value="alcohol.alcoholLevel"
+      v-model="alcohol.alcoholLevel"
+    />
 
     <button class="btn btn-outline-primary my-3" type="submit">Modify</button>
-    <router-link class="btn btn-outline-danger" :to="`/${alcohol.id}`">Back</router-link>
+    <router-link class="btn btn-outline-danger" :to="`/${alcohol.id}`"
+      >Back</router-link
+    >
 
-    <p><strong>{{message}}</strong></p>
-
+    <p>
+      <strong>{{ message }}</strong>
+    </p>
   </form>
 </template>
 
 <style>
-form{
+form {
   display: flex;
   flex-direction: column;
 }
