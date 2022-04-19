@@ -40,8 +40,8 @@ export default {
     <input id="alcohol" type="number" step="0.1" max="100" min="0" name="alcoholLevel" :placeholder="alcohol.alcoholLevel" v-model="alcohol.alcoholLevel"/>
 
 
-    <router-link :to="`/${alcohol.id}`"><button>Back</button></router-link>
-    <button type="submit">Modify</button>
+    <button class="btn btn-outline-primary my-3" type="submit">Modify</button>
+    <router-link class="btn btn-outline-danger" :to="`/${alcohol.id}`">Back</router-link>
 
     <p><strong>{{message}}</strong></p>
 

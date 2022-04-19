@@ -27,7 +27,7 @@ body{
   justify-content: center;
 }
 #app{
-  max-width: 75%;
+  max-width: 65%;
 }
 #logo{
   position: fixed;

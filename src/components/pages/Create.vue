@@ -8,7 +8,8 @@ export default {
     description:"",
     price:"",
     alcohol:"",
-    message:""
+    message:"",
+    previewImage: undefined
   }),
 
   methods: {
@@ -16,6 +17,14 @@ export default {
       const res = await addAlcohol(this.name,this.type,this.description,this.price,this.alcohol)
       this.message = res.message
     },
+    uploadImage(e) {
+      const [image] = e.target.files;
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = e => {
+        this.previewImage = e.target.result;
+      };
+    }
   },
 }
 </script>
@@ -38,9 +47,13 @@ export default {
     <label for="alcohol">Alcohol level</label>
     <input id="alcohol" type="number" step="0.1" max="100" min="0" placeholder="Alcohol degree" v-model="alcohol" required>
 
-    <!-- <input type="file" accept="image/*" required> -->
+    <label for="image">Picture</label>
+    <input id="image" type="file" accept="image/*" @change="uploadImage" required>
+    
     <button class="btn btn-outline-primary mt-3" type="submit">Add</button>
     <p><strong>{{message}}</strong></p>
+    
+    <img :src="previewImage" />
 
   </form>
 </template>
@@ -49,5 +62,9 @@ export default {
 form{
   display: flex;
   flex-direction: column;
+  width: 350px;
+}
+img{
+  max-width: 350px;
 }
 </style>

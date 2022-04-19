@@ -15,8 +15,8 @@ export default {
 
   methods: {
     async deleteAlcohol() {
-      await deleteAlcohol(this.alcohol)
       this.message = "Successfully deleted !"
+      await deleteAlcohol(this.alcohol)
     },
   },
 }
