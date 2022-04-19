@@ -21,31 +21,19 @@ export default {
   <form action="get">
     <div>
       <label for="name">Nom</label>
-      <input
-        type="text"
-        name="name"
-        :placeholder="alcohol.name"
-        id="name"
-        required
-      />
+      <input type="text" name="name" :value="alcohol.name" id="name" required />
     </div>
 
     <div>
       <label for="type">Type</label>
-      <input
-        type="text"
-        name="type"
-        :placeholder="alcohol.type"
-        id="type"
-        required
-      />
+      <input type="text" name="type" :value="alcohol.type" id="type" required />
     </div>
 
     <div>
       <label for="type">Description</label>
       <textarea
         name="description"
-        :placeholder="alcohol.description"
+        :value="alcohol.description"
         rows="10"
         cols="22"
         required
@@ -57,7 +45,7 @@ export default {
       <input
         type="text"
         name="evaluatedPrice"
-        :placeholder="alcohol.evaluatedPrice"
+        :value="alcohol.evaluatedPrice"
         required
       />
     </div>
@@ -67,7 +55,7 @@ export default {
       <input
         type="text"
         name="alcoholLevel"
-        :placeholder="alcohol.alcoholLevel"
+        :value="alcohol.alcoholLevel"
         required
       />
     </div>
