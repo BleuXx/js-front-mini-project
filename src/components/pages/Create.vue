@@ -1,70 +1,111 @@
 <script>
-import {addAlcohol} from '../../services/api.js'
-export default {
+import { addAlcohol } from "../../services/api.js";
 
-  data: () =>( {
-    name:"",
-    type:"",
-    description:"",
-    price:"",
-    alcohol:"",
-    message:"",
-    previewImage: undefined
+export default {
+  data: () => ({
+    alcohol: {
+      name: null,
+      type: null,
+      description: null,
+      estimatedPrice: null,
+      alcoholLevel: null,
+      image: null,
+    },
+    message: null,
   }),
 
   methods: {
     async addAlcohol() {
-      const res = await addAlcohol(this.name,this.type,this.description,this.price,this.alcohol)
-      this.message = res.message
+      const response = await addAlcohol(this.alcohol);
+      if (response.status >= 400) {
+        this.message = response.data.message;
+      } else {
+        this.message = "Successfully added";
+      }
     },
-    uploadImage(e) {
-      const [image] = e.target.files;
+    onFileChanged(event) {
       const reader = new FileReader();
-      reader.readAsDataURL(image);
-      reader.onload = e => {
-        this.previewImage = e.target.result;
+      const image = event.target.files[0];
+
+      reader.onload = (event_) => {
+        this.alcohol.image = event_.target.result;
       };
-    }
+      reader.readAsDataURL(image);
+    },
+    showMsg() {
+      return this.message !== null ? "w-100 mb-2" : "d-none";
+    },
   },
-}
+};
 </script>
 
 <template>
   <form @submit.prevent="addAlcohol">
-
     <label for="name">Name</label>
-    <input id="name" type="text" placeholder="Name" v-model="name" required>
+    <input id="name" type="text" v-model="alcohol.name" required />
 
     <label for="type">Type</label>
-    <input id="type" type="text" placeholder="Type" v-model="type" required>
+    <input id="type" type="text" v-model="alcohol.type" />
 
     <label for="desc">Description</label>
-    <textarea id="desc" rows="10" cols="22" placeholder="Description" v-model="description" required></textarea>
+    <textarea
+      id="desc"
+      rows="10"
+      cols="22"
+      v-model="alcohol.description"
+      required
+    ></textarea>
 
     <label for="price">Estimated price</label>
-    <input id="price" type="number" step="0.01" min="0" placeholder="Estimated price" v-model="price" required>
+    <input
+      id="price"
+      type="number"
+      step="0.01"
+      min="0"
+      v-model="alcohol.estimatedPrice"
+    />
 
     <label for="alcohol">Alcohol level</label>
-    <input id="alcohol" type="number" step="0.1" max="100" min="0" placeholder="Alcohol degree" v-model="alcohol" required>
+    <input
+      id="alcohol"
+      type="number"
+      step="0.1"
+      max="100"
+      min="0"
+      v-model="alcohol.alcoholLevel"
+    />
 
     <label for="image">Picture</label>
-    <input id="image" type="file" accept="image/*" @change="uploadImage" required>
-    
-    <button class="btn btn-outline-primary mt-3" type="submit">Add</button>
-    <p><strong>{{message}}</strong></p>
-    
-    <img :src="previewImage" />
+    <input
+      id="image"
+      type="file"
+      accept="image/*"
+      name="image"
+      @change="onFileChanged"
+    />
+    <img :src="alcohol.image" />
 
+    <button class="btn btn-outline-primary w-100 my-2" type="submit">
+      Add
+    </button>
+    <p :class="showMsg()">
+      <strong>{{ message }}</strong>
+    </p>
   </form>
+
+  <router-link class="btn btn-outline-secondary w-100 mb-2" to="/">
+    Back
+  </router-link>
 </template>
 
 <style>
-form{
+form {
   display: flex;
   flex-direction: column;
   width: 350px;
 }
-img{
+
+img {
   max-width: 350px;
 }
 </style>

@@ -1,40 +1,40 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:3001/alcoholic_drinks";
-
 const requestHandler = axios.create({
-  baseURL: "https://some-domain.com/api/",
+  baseURL: "http://localhost:3001/alcoholic_drinks",
   timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
 });
 
 export const getAlcohols = async () => {
-  const res = await requestHandler.get("/");
-  return res.data;
+  const response = await requestHandler.get("/");
+  console.log(response);
+  return response;
 };
 
-export const getAlcohol = async (id) => {
-  const res = await axios.get(`/${id}`);
-  console.log(res);
-  return res.data;
+export const getAlcohol = async ({ id }) => {
+  const response = await requestHandler.get(`/${id}`);
+  console.log(response);
+  return response;
 };
 
-export const addAlcohol = async (
+export const addAlcohol = async ({
   name,
   type,
   description,
-  evaluatedPrice,
-  alcoholLevel
-) => {
-  const res = await axios.post(`/`, {
+  estimatedPrice,
+  alcoholLevel,
+  image,
+}) => {
+  const response = await requestHandler.post("/", {
     name,
     type,
     description,
-    evaluatedPrice,
+    estimatedPrice,
     alcoholLevel,
+    image,
   });
-
-  return res.data;
+  console.log(response);
+  return response;
 };
 
 export const updateAlcohol = async ({
@@ -42,18 +42,28 @@ export const updateAlcohol = async ({
   name,
   type,
   description,
-  evaluatedPrice,
+  estimatedPrice,
   alcoholLevel,
 }) => {
-  const res = await axios.put(`/${id}`, {
+  const response = await requestHandler.put(`/${id}`, {
     name,
     type,
     description,
-    evaluatedPrice,
+    estimatedPrice,
     alcoholLevel,
   });
-  return res.data;
+  console.log(response);
+  return response;
 };
 
-export const deleteAlcohol = async (alcohol) =>
-  await axios.delete(`/${alcohol.id}`);
+export const deleteAlcohol = async ({ id }) => {
+  const response = await requestHandler.delete(`/${id}`);
+  console.log(response);
+  return response;
+};
+
+export const getStats = async () => {
+  const response = await requestHandler.get("/stats");
+  console.log(response);
+  return response;
+};

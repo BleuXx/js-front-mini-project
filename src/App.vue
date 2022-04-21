@@ -19,13 +19,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 body {
   display: flex;
   justify-content: center;
 }
+
 #app {
-  max-width: 65%;
+  max-width: 75%;
 }
+
 #logo {
   position: fixed;
   top: 15px;
