@@ -11,6 +11,12 @@ export const getAlcohols = async () => {
   return response;
 };
 
+export const filtering = async ({query}) => {
+  const response = await requestHandler.get("/",{params:{name:query}});
+  console.log(response);
+  return response;
+};
+
 export const getAlcohol = async ({ id }) => {
   const response = await requestHandler.get(`/${id}`);
   console.log(response);

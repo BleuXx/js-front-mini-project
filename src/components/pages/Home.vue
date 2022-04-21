@@ -1,11 +1,12 @@
 <script>
-import { deleteAlcohol, getAlcohols, getStats } from "../../services/api.js";
+import { deleteAlcohol, getAlcohols, getStats, filtering } from "../../services/api.js";
 
 export default {
   data: () => ({
     alcohols: [],
     collectionValue: 0,
     meanValue: 0,
+    filter:"",
   }),
   methods: {
     async getAlcohols() {
@@ -54,7 +55,10 @@ export default {
 
       return response.data;
     },
-    filterAlcohols() {},
+    async filterAlcohols() {
+      this.alcohols = await filtering(this.filter)
+      console.log(this.alcohols)
+    },
   },
 
   async mounted() {
@@ -80,6 +84,7 @@ export default {
       type="search"
       placeholder="Type query"
       aria-label="Search"
+      v-model="filter"
     />
 
     <button class="btn btn-outline-primary w-100 my-2" type="submit">

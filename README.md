@@ -1,7 +1,23 @@
-# Vue 3 + Vite
+# Alcohol collection
+Front-end part with Vue.js
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Groupe
+Nils MARREROS /
+Eliott LE NORMAND /
+Antoine MOREY
+## Available Scripts
+[Need the back-end part here](https://github.com/Eliottln/js-back-mini-project/tree/main)
 
-## Recommended IDE Setup
+**In the project directory, you can run:**
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+### `npm install i`
+To install npm
+### `npm run dev`
+To start the app in dev mode.\
+Open [http://localhost:3000](http://localhost:3000/) to view it in the browser.
+### `npm start`
+For production mode
+### `npm run test`
+Run the test cases.
+## Learn More
+To learn Vue.js heck out the [Vue.js documentation](https://vuejs.org/guide/introduction.html)
