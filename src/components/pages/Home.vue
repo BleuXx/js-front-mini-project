@@ -31,7 +31,7 @@ export default {
 
       this.collectionValue -= deletedAlcohol.estimatedPrice;
       this.meanValue =
-        nbAlcoholDrinks > 0 ? collectionValue / nbAlcoholDrinks : 0;
+        nbAlcoholDrinks > 0 ? this.collectionValue / nbAlcoholDrinks : 0;
     },
     async getStats() {
       const response = await getStats();
@@ -40,7 +40,7 @@ export default {
         console.log(response.statusText);
         const nbAlcoholDrinks = this.alcohols.length;
         let collectionValue = 0.0;
-        for (let alcohol of this.alcohols) {
+        for (const alcohol of this.alcohols) {
           collectionValue += alcohol.estimatedPrice;
         }
 
