@@ -18,7 +18,7 @@ export default {
 
       return response.data;
     },
-    async deleteAlcohol(index, alcohol) {
+    async deleteAlcohol(alcohol) {
       const response = await deleteAlcohol(alcohol);
 
       if (response.status >= 400) {
@@ -26,12 +26,12 @@ export default {
         return;
       }
 
-      const deletedAlcohol = this.alcohols.splice(index, 1)[0];
-      const nbAlcoholDrinks = this.alcohols.length;
+      this.alcohols = await this.getAlcohols();
 
-      this.collectionValue -= deletedAlcohol.estimatedPrice;
-      this.meanValue =
-        nbAlcoholDrinks > 0 ? this.collectionValue / nbAlcoholDrinks : 0;
+      const stats = await this.getStats();
+
+      this.collectionValue = stats.collectionValue;
+      this.meanValue = stats.meanValue;
     },
     async getStats() {
       const response = await getStats();
@@ -54,6 +54,7 @@ export default {
 
       return response.data;
     },
+    filterAlcohols() {},
   },
 
   async mounted() {
@@ -70,6 +71,22 @@ export default {
   <p>Number of items : {{ alcohols.length }}</p>
   <p>Estimated value of the collection : {{ collectionValue }}</p>
   <p>Mean of the collection : {{ meanValue }}</p>
+
+  <form class="form-outline w-100" @submit.prevent="filterAlcohols">
+    <label for="search-name">Name</label>
+    <input
+      id="search-name"
+      class="form-control"
+      type="search"
+      placeholder="Type query"
+      aria-label="Search"
+    />
+
+    <button class="btn btn-outline-primary w-100 my-2" type="submit">
+      Filter
+    </button>
+  </form>
+
   <table class="table table-striped table-bordered text-center">
     <thead>
       <tr>
@@ -82,7 +99,7 @@ export default {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(alcohol, index) in alcohols" :key="index">
+      <tr v-for="alcohol in alcohols">
         <td class="align-middle">{{ alcohol.name }}</td>
         <td class="align-middle">{{ alcohol.type }}</td>
         <td class="align-middle text-break">{{ alcohol.description }}</td>
@@ -100,7 +117,7 @@ export default {
           </router-link>
           <button
             class="btn btn-outline-danger"
-            v-on:click="deleteAlcohol(index, alcohol)"
+            v-on:click="deleteAlcohol(alcohol)"
           >
             Delete
           </button>
