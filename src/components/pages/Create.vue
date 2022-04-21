@@ -45,7 +45,7 @@ export default {
     <input id="name" type="text" v-model="alcohol.name" required />
 
     <label for="type">Type</label>
-    <input id="type" type="text" v-model="alcohol.type" />
+    <input id="type" type="text" v-model="alcohol.type" required />
 
     <label for="desc">Description</label>
     <textarea
@@ -63,6 +63,7 @@ export default {
       step="0.01"
       min="0"
       v-model="alcohol.estimatedPrice"
+      required
     />
 
     <label for="alcohol">Alcohol level</label>
@@ -82,6 +83,7 @@ export default {
       accept="image/*"
       name="image"
       @change="onFileChanged"
+      required
     />
     <img :src="alcohol.image" />
 
